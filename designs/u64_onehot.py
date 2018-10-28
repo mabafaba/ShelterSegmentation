@@ -6,9 +6,9 @@ from keras.models import Model
 from keras.optimizers import Adam
 from keras.layers import BatchNormalization
 from keras.layers import Input, concatenate, Conv2D, MaxPooling2D, Conv2DTranspose
-
+from keras.layers import Softmax
 from designs.components.loss_functions import dice_coef_onehot_loss as lossfunction
-from designs.components.loss_functions import dice_coef as lossmetric
+from designs.components.loss_functions import dice_coef_onehot as lossmetric
 
 # CITATION
 # - U-Net: https://arxiv.org/pdf/1505.04597.pdf
