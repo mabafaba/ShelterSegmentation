@@ -25,6 +25,9 @@ conda activate ml
 python train_cloud.py
 
 
+# also clone the repo papa
+git clone https://github.com/mabafaba/ShelterSegmentation.git
+
 
 # to add a model variation:
 train.py: add model where "add model here"
@@ -64,4 +67,12 @@ Deep Learning AMI (Ubuntu)
 
 ## set up ssh key
 
+
+
+# getting setup on gcloud:
+start instance
+clic ssh -> show gcloud command
+something like:
+gcloud compute --project "shelter-209614" ssh --zone "us-east1-b" "cpuonly"
+run that in console
 
