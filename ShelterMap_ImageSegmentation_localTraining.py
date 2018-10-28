@@ -12,7 +12,7 @@ from resources.plot_results import plot_loss_epoch
 
 
 #local path for testing --> contains 10 samples of training and test.
-data_path = '/Users/rizki/Documents/Projects/ShelterSegmentation_take2/shelterdata_forTESTING/180505_v1' 
+data_path = '/Volumes/2/shelterdata/180505_v1' 
 
 create_train_data(data_path)#,showSample=True,showNumSample=4)
 create_test_data(data_path)

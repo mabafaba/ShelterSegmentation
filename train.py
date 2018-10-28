@@ -101,8 +101,8 @@ def train(data_path,model_str,
 # What to do when this file is run:
 if __name__ == '__main__':
     #data_path = '/media/data/180505_v1/'
-    data_path = '/Users/rizki/Documents/Projects/ShelterSegmentation_take2/shelterdata/180505_v1/'
-
+    # data_path = '/Users/rizki/Documents/Projects/ShelterSegmentation_take2/shelterdata/180505_v1/'
+    data_path = 'Volumes/2/shelterdata/train/'
     train(data_path,'unet')
 
 
