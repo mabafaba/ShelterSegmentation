@@ -41,14 +41,13 @@ def dice_coef_onehot(y_true,y_pred):
 
 	y_pred0 = y_pred[:,:,:,0]
 	y_true0 = y_true_both[:,:,:,0]
-	
 	y_pred1 = y_pred[:,:,:,1]
 	y_true1 = y_true_both[:,:,:,1]
 
 	dice0 = dice_coef(y_true0,y_pred0)
 	dice1 = dice_coef(y_true1,y_pred1)
 
-	return(dice0+dice1)
+	return(dice1)
 
 def dice_coef_onehot_loss(y_true, y_pred):
     return -1*dice_coef_onehot(y_true, y_pred)
