@@ -1,7 +1,13 @@
 
 
 # setting up conda environment:
+```
+# installing anaconda
+ # replace this `Anaconda3-version.num-Linux-x86_64.sh` with your choice
+wget -c https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh
+bash Anaconda3-5.3.0-Linux-x86_64.sh
 
+# setting up anaconda environment (once)
 conda create -n ml
 
 conda install nb_conda
@@ -12,10 +18,11 @@ conda activate ml
 conda install keras
 conda install scikit-image
 conda install -c conda-forge matplotlib
-conda install nb_conda
 conda install -c anaconda jupyter
 
-
+# start in environment:
+conda activate ml
+python train_cloud.py
 
 
 

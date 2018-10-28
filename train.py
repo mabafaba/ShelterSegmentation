@@ -37,6 +37,7 @@ def train(data_path,model_str,
     if model_str=='unet64filters':from designs import unet64filters as design
     if model_str=='flatunet':from designs import flatunet as design
     if model_str=='unet64batchnorm':from designs import unet64batchnorm as design
+    if model_str=='u64_onehot':from designs import u64_onehot as design
 
     # DATA LOADING AND PREPROCESSING
     print('Loading and preprocessing train data...')

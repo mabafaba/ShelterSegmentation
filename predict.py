@@ -17,7 +17,8 @@ def predict(data_path,model_str,ckpt_path_=''):
     if model_str=='unet64filters':from designs import unet64filters as design
     if model_str=='flatunet':from designs import flatunet as design
     if model_str=='unet64batchnorm':from designs import unet64batchnorm as design
-
+    if model_str=='u64_onehot':from designs import u64_onehot as design
+    
     imgs_train, imgs_mask_train = load_train_data(data_path)
 
     print('Creating and compiling model...')
