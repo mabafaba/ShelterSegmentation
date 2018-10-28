@@ -37,19 +37,10 @@ def dice_coef_onehot(y_true,y_pred):
 	# print("losstensors:")
 	# print('reversing')
 	y_true_2 = 1. - y_true
-	print("concatenating")
-	y_true = K.print_tensor(y_true, message='y_true = ')
 	y_true_combined = tf.concat([y_true,y_true_2],3)
 	print("printing combined:")
-	y_pred = K.print_tensor(y_pred)
-	y_true_combined = K.print_tensor(y_true_combined)
 	intersection = K.sum(y_true_combined * y_pred)
 	dice = (2. * intersection + smooth) / (K.sum(y_true_combined) + K.sum(y_pred) + smooth)
-	
-
-	# intersection_2 = K.sum(y_true_2[:,:,:,0] * y_pred[:,:,:,1])
-	# dice2 = (2. * intersection_2 + smooth) / (K.sum(y_true_2[:,:,:,0]) + K.sum(y_pred[:,:,:,1]) + smooth)
-	# return (dice1 + dice2)/2
 	return(dice)
 
 def dice_coef_onehot_loss(y_true, y_pred):
