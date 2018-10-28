@@ -41,7 +41,22 @@ create_test_data(data_path)
 
 
 # # #### U-Net  64 with onehot output
-modelname = "u64_onehot"
+# modelname = "u64_onehot"
+# train(data_path,modelname,
+# 	number_of_epochs=25,
+# 	batch_size=30,
+# 	test_data_fraction=0.2,
+# 	checkpoint_period=1,
+# 	load_prev_weights=False,
+# 	early_stop_patience=5)
+# plot_loss_epoch(data_path+'/internal/checkpoints/',modelname)
+# predict(data_path,modelname)
+
+
+
+
+# # #### no maxpooling
+modelname = "nomaxpool"
 train(data_path,modelname,
 	number_of_epochs=25,
 	batch_size=30,
@@ -51,3 +66,10 @@ train(data_path,modelname,
 	early_stop_patience=5)
 plot_loss_epoch(data_path+'/internal/checkpoints/',modelname)
 predict(data_path,modelname)
+
+
+
+
+
+
+
