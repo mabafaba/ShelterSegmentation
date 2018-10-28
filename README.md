@@ -1,6 +1,6 @@
 
 # setting up conda environment:
-```
+
 # installing anaconda
  # replace this `Anaconda3-version.num-Linux-x86_64.sh` with your choice
 wget -c https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh
@@ -56,17 +56,29 @@ Deep Learning AMI (Ubuntu)
 
 
 # gcloud setup:
+## create instance
+dont be on 'free trial' by clicking upgrade account somewhere
+'create instance'
+select 2 CPU w >10GB storage
+select 1 Tesla K80 GPU
+if no GPU available try a different geo zone
+fire upppp and you're good to go to....
+
 
 ## start instance & connect SSH
+start instance on gcloud website
+
 click on ssh -> show gcloud command
 copy the command that looks something like: gcloud compute --project "PROJECTNAME" ssh --zone "us-east1-b" "INSTANCENAME"
 run that in your console.
 ## install conda
 sudo apt-get install bzip2
 wget -c https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh
-bash Anaconda3-5.3.0-Linux-x86_64.sh
+bash Anaconda3-5.3.0-Linux-x86_64.sh 
+source ~/.bashrc 
 
 ## setup conda environment and install relevant packages
+### you'll have to copy paste and run these one by one:
 conda create -n ml
 
 conda install nb_conda

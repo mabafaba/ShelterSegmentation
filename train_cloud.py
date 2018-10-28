@@ -40,8 +40,8 @@ create_test_data(data_path)
 
 modelname = "u64_onehot"
 train(data_path,modelname,
-	number_of_epochs=3,
-	batch_size=8,
+	number_of_epochs=30,
+	batch_size=32,
 	test_data_fraction=0.2,
 	checkpoint_period=1,
 	load_prev_weights=False,

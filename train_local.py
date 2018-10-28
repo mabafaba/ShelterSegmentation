@@ -43,8 +43,8 @@ create_test_data(data_path)
 # # #### U-Net  64 with onehot output
 modelname = "u64_onehot"
 train(data_path,modelname,
-	number_of_epochs=3,
-	batch_size=8,
+	number_of_epochs=25,
+	batch_size=30,
 	test_data_fraction=0.2,
 	checkpoint_period=1,
 	load_prev_weights=False,
