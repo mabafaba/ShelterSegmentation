@@ -5,7 +5,7 @@
  # replace this `Anaconda3-version.num-Linux-x86_64.sh` with your choice
 wget -c https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh
 bash Anaconda3-5.3.0-Linux-x86_64.sh
-
+rm Anaconda3-5.3.0-Linux-x86_64.sh
 # setting up anaconda environment (once)
 
 
@@ -99,15 +99,54 @@ git clone https://github.com/mabafaba/ShelterSegmentation.git
 
 ## Copy data to instance
 run _locally_ (not in your ssh to gcloud):
-gcloud compute scp /Volumes/2/shelterdata.zip m@cpuonly:./shelterdata
-
+gcloud compute scp /Volumes/2/shelterdata.zip m@cpuonly:./shelterdata.zip
+sudo apt-get install unzip
+unzip shelterdata -d ./
 ## run the code
+~OOOOOOOK 
+SEEM LIKE c o m p l i c a t e d e r than i though a.k.a. WHY DO THEY DO THAT TO US a.k.a. isnt this supposed to be an abstraction:
+https://stackoverflow.com/questions/43322886/how-to-train-keras-model-on-google-cloud-machine-learning-engine
+ok or maybe i just needed to install cuda and cuDNN too:
+https://medium.com/google-cloud/running-jupyter-notebooks-on-gpu-on-google-cloud-d44f57d22dbd
+sooo.. to enable gpu let's try:
 
+
+sudo apt-get install rpm
+sudo apt-get install yum
+
+curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+sudo apt-get install dirmngr
+sudo apt-get update
+rm cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+sudo apt-get install cuda -y
+nvidia-smi~
+## none of the above worked so instead:
+select a deep learning optimised instance type! then
+sudo /opt/deeplearning/install-driver.sh
+(as in the echo upon connecting to instance)
+for conda you need to use the local tensorflow binary in:
+conda install --offline /opt/deeplearning/binaries/tensorflow/
+(again as in the echo upon connecting to instance)
+then follow instructions on conda setup above
+check if using gpu:
+from keras import backend as K
+K.tensorflow_backend._get_available_gpus()
+if no good use
+cd ../../opt/deeplearning/binaries
+ls # see available wheel files. try them until it works. then:
+pip install ...blabla....whl
 ### fire up conda environment:
 conda activate ml
 ### run code:
 cd ShelterSegmentation
 python train_cloud.py
 
-
+IT FUCKIN WOOOOOORKS!!!!
+recap:
+- only listen to the "get a deep learning setup instance" instructions
+- install cuda stuff as instructed
+- install all the conda stuff as instructed, get the github repo etc all normal
+- install tf from local binary wheel as instructed.
+- knock yourself out with infinite computing power of destruction muhahaha
 
