@@ -18,7 +18,7 @@ create_test_data(data_path)
 # ### Available models: 'unet','flatunet', 'unet64filters', or 'unet64batchnorm'
 
 # #### Mod U-Net  3
-# #train(data_path,'unet64filters',number_of_epochs=10,batch_size=8,test_data_fraction=0.2,checkpoint_period=1,load_prev_weights=True,early_stop_patience=1)
+# train(data_path,'unet64filters',number_of_epochs=30,batch_size=32,test_data_fraction=0.2,checkpoint_period=1,load_prev_weights=False,early_stop_patience=1)
 # train(data_path,'unet64filters',number_of_epochs=80,batch_size=32,test_data_fraction=0.2,checkpoint_period=10,load_prev_weights=True,early_stop_patience=5)
 # plot_loss_epoch(data_path+'/internal/checkpoints/','unet64filters')
 # predict(data_path,'unet64filters')
@@ -41,7 +41,7 @@ create_test_data(data_path)
 modelname = "u64_onehot"
 train(data_path,modelname,
 	number_of_epochs=30,
-	batch_size=32,
+	batch_size=64,
 	test_data_fraction=0.2,
 	checkpoint_period=1,
 	load_prev_weights=False,
