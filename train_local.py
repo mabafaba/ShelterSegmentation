@@ -20,10 +20,24 @@ create_test_data(data_path)
 create_ew_data(data_path)
 # ### Available models: 'unet','flatunet', 'unet64filters', or 'unet64batchnorm'
 
-#### Mod U-Net  3
-train(data_path,'unet64filters',number_of_epochs=3,batch_size=8,test_data_fraction=0.2,checkpoint_period=1,load_prev_weights=True,early_stop_patience=1)
-plot_loss_epoch(data_path+'/internal/checkpoints/','unet64filters')
-predict(data_path,'unet64filters')
+# #### Mod U-Net  3
+# train(data_path,'unet64filters',number_of_epochs=3,batch_size=8,test_data_fraction=0.2,checkpoint_period=1,load_prev_weights=True,early_stop_patience=1)
+# plot_loss_epoch(data_path+'/internal/checkpoints/','unet64filters')
+# predict(data_path,'unet64filters')
+
+
+#### Mod U-Net  3.5
+modelname = "unet64filters_weighted"
+train(data_path,modelname,
+	number_of_epochs=25,
+	batch_size=30,
+	test_data_fraction=0.2,
+	checkpoint_period=1,
+	load_prev_weights=False,
+	early_stop_patience=5)
+plot_loss_epoch(data_path+'/internal/checkpoints/',modelname)
+predict(data_path,modelname)
+
 
 # # #### U-Net
 # train(data_path,'unet',number_of_epochs=3,batch_size=8,test_data_fraction=0.2,checkpoint_period=1,load_prev_weights=True,early_stop_patience=5)
