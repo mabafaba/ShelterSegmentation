@@ -17,6 +17,9 @@ from preprocessing.data import load_train_data
 from preprocessing.data import preprocess
 from preprocessing.data import normalize
 from preprocessing.data import normalize_mask
+from preprocessing.data import normalize_errorweight
+
+from preprocessing.ew_data import load_ew_data
 
 # MODEL
 # every design module should have a least:
@@ -43,14 +46,21 @@ def train(data_path,model_str,
     # DATA LOADING AND PREPROCESSING
     print('Loading and preprocessing train data...')
 
+
     # load input images
     imgs_train, imgs_mask_train = load_train_data(data_path)
+    imgs_ew = load_ew_data(data_path)
 
     imgs_train = preprocess(imgs_train)
     imgs_mask_train = preprocess(imgs_mask_train)
+    imgs_ew = preprocess(imgs_ew)
 
     imgs_train = normalize(imgs_train)
     imgs_mask_train = normalize_mask(imgs_mask_train)
+    imgs_ew = normalize_errorweight(imgs_ew)
+    print(imgs_ew.min())
+    print(imgs_ew.mean())
+    print(imgs_ew.max())
 
     # BUILD MODEL
     print('Creating and compiling model...')
@@ -87,7 +97,7 @@ def train(data_path,model_str,
 
     # FIT MODEL
     print('Fitting model...')
-    model_out = model.fit(imgs_train, imgs_mask_train,
+    model_out = model.fit(imgs_train, imgs_mask_train,model_weights=imgs_ew+1.,
               batch_size=batch_size,
               epochs=number_of_epochs,
               verbose=1,

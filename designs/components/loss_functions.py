@@ -28,9 +28,20 @@ def dice_coef_loss(y_true, y_pred):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 # one hot dice loss
 
-
+# NOT FUNCITONING CORRECTLY i think
 def dice_coef_onehot(y_true,y_pred):
 	# err_concat_test = concatenate([y_true, y_pred], axis=3)
 	# print(err_concat_test)

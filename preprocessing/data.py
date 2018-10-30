@@ -11,10 +11,12 @@ image_cols = 129
 
 def create_train_data(data_path,showSample=False,showNumSample=1):
     train_data_path = os.path.join(data_path, 'input/train')
+
     images = [path for path in os.listdir(train_data_path) if not path.startswith('.')]
 
     sample_filename=[]
     mask_filename=[]
+
     for i, sample_name in enumerate(images):
         if 'sample' in sample_name and 'bmp' in sample_name:
             #loop again and only include if there is a corressponding mask file
@@ -144,6 +146,16 @@ def normalize_mask(imgs):
     imgs /= 255.  
 
     return imgs
+
+def normalize_errorweight(imgs):
+
+    # scale masks to [0, 1]
+    imgs= imgs.astype('float32')
+    imgs /= 255.  
+    imgs += 100.5
+    return imgs
+
+
 
 def plot_data(path,sample,showNumSample):
 
