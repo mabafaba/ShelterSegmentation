@@ -2,6 +2,10 @@ from keras import backend as K
 from keras.layers import concatenate
 import tensorflow as tf
 
+
+
+
+# STANDARD DICE COEFFICIENT
 # import numpy as np
 
 # dice coefficient: value is between 0 and 1 
@@ -28,9 +32,29 @@ def dice_coef_loss(y_true, y_pred):
 
 
 
+
+
+# DICE COEFFICIENT WITH WEIGHTING MASK
+
+def dice_coef_weighted(y_true, y_pred):
+	y_true_mask = y_true[:,:,0]
+	y_weight_mask = y_true[:,:,1]
+	pixelwise_intersection = y_weight_mask * y_pred
+	pixelwise_intersection_weighted = pixelwise_intersection * y_weight_mask
+	intersection = K.sum(pixelwise_intersection_weighted)
+	y_true_weighted = y_true_mask * y_weight_mask
+	y_pred_weighted = y_pred * y_weight_mask
+	return (2. * intersection + smooth) / (K.sum(y_true_weighted) + K.sum(y_pred_weighted) + smooth)
+
+# loss is to be minimized so we take the negative of the dice coefficient
+def dice_coef_loss_weighted(y_true, y_pred):
+    return -dice_coef_weighted(y_true, y_pred)
+
+
+# DICE COEFFICIENT ONE HOT 
 # one hot dice loss
 
-
+# NOT FUNCITONING CORRECTLY i think
 def dice_coef_onehot(y_true,y_pred):
 	# err_concat_test = concatenate([y_true, y_pred], axis=3)
 	# print(err_concat_test)
