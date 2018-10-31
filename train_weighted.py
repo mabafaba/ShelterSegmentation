@@ -60,15 +60,10 @@ def train(data_path,model_str,
     imgs_train = normalize(imgs_train)
     imgs_mask_train = normalize_mask(imgs_mask_train)
     imgs_ew = normalize_errorweight(imgs_ew)
+    print(imgs_ew.min())
+    print(imgs_ew.mean())
+    print(imgs_ew.max())
 
-  
-    if 'weighted' in model_str:
-      mask_combined = []
-      for i in range(len(imgs_mask_train)):
-        mask_combined.append(np.concatenate([imgs_mask_train,imgs_ew],axis=3))
-      print(mask_combined[0])
-
-    
     # BUILD MODEL
     print('Creating and compiling model...')
     model = design.build()

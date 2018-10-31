@@ -149,10 +149,11 @@ def normalize_mask(imgs):
 
 def normalize_errorweight(imgs):
 
-    # scale masks to [0, 1]
     imgs= imgs.astype('float32')
-    imgs /= 255.  
-    imgs += 100.5
+    imgs /= 255.
+    imgs *= 11  
+    imgs += 1
+
     return imgs
 
 
