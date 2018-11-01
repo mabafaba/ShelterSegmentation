@@ -99,7 +99,7 @@ git clone https://github.com/mabafaba/ShelterSegmentation.git
 
 ## Copy data to instance
 run _locally_ (not in your ssh to gcloud):
-gcloud compute scp /Volumes/2/shelterdata.zip m@cpuonly:./shelterdata.zip
+gcloud compute scp /Volumes/2/shelterdata.zip m@instance-2:./shelterdata.zip
 sudo apt-get install unzip
 unzip shelterdata -d ./
 ## run the code
