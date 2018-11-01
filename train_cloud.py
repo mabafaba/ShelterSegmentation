@@ -28,12 +28,12 @@ create_ew_data(data_path)
 #### Mod U-Net  3.5
 modelname = "unet64filters_weighted"
 train(data_path,modelname,
-	number_of_epochs=25,
+	number_of_epochs=100,
 	batch_size=30,
 	test_data_fraction=0.2,
 	checkpoint_period=1,
 	load_prev_weights=False,
-	early_stop_patience=5)
+	early_stop_patience=15)
 plot_loss_epoch(data_path+'/internal/checkpoints/',modelname)
 predict(data_path,modelname)
 
