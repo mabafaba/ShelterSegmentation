@@ -7,6 +7,7 @@ import os
 from train import train 
 from predict import predict
 from preprocessing.data import create_train_data, create_test_data
+from preprocessing.ew_data import create_ew_data
 from resources.plot_results import plot_loss_epoch
 
 #AWS path
@@ -14,6 +15,7 @@ data_path = '../shelterdata/180505_v1'
 
 create_train_data(data_path)#,showSample=True,showNumSample=4)
 create_test_data(data_path)
+create_ew_data(data_path)
 
 # ### Available models: 'unet','flatunet', 'unet64filters', or 'unet64batchnorm'
 
