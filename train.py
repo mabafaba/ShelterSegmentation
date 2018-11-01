@@ -65,7 +65,7 @@ def train(data_path,model_str,
     if 'weighted' in model_str:
       mask_combined = []
       for i in range(len(imgs_mask_train)):
-        mask_combined.append(np.concatenate([imgs_mask_train,imgs_ew],axis=3))
+        mask_combined.append(np.concatenate([imgs_mask_train[i],imgs_ew[i]],axis=2))
       print(mask_combined[0])
 
     
