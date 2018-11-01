@@ -38,7 +38,7 @@ def train(data_path,model_str,
     #add models here:
     if model_str=='unet':from designs import unet as design
     if model_str=='unet64filters':from designs import unet64filters as design
-    if model_str=='unet64filters_weighted':from designs import unet64filters as design
+    if model_str=='unet64filters_weighted':from designs import unet64filters_weighted as design
 
     if model_str=='flatunet':from designs import flatunet as design
     if model_str=='unet64batchnorm':from designs import unet64batchnorm as design

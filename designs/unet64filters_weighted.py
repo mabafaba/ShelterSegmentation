@@ -8,7 +8,7 @@ from keras.layers import BatchNormalization
 from keras.layers import Input, concatenate, Conv2D, MaxPooling2D, Conv2DTranspose
 
 from designs.components.loss_functions import dice_coef_loss_weighted as loss_fun
-from designs.components.loss_functions import dice_coef as loss_metric
+from designs.components.loss_functions import dice_coef_loss_weighted as loss_metric
 
 # CITATION
 # - U-Net: https://arxiv.org/pdf/1505.04597.pdf
@@ -22,7 +22,7 @@ resize_image_width_to = 128
 # MODEL
 def build():
 
-    print('using model: unet64filters (unet but all kernels/filters made to be 64)') 
+    print('using model: unet64filters WEIGHTED (unet but all kernels/filters made to be 64)') 
 
     # expected input shape
     inputs = Input((resize_image_height_to, resize_image_width_to, 1)) #  1 channel, x rows, y = x columns
